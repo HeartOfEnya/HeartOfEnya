@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3296149169747409232}
   - component: {fileID: -6619775620016568397}
   - component: {fileID: 7892402676634016641}
+  - component: {fileID: 4140567779501887690}
   m_Layer: 0
   m_Name: PersistentDataManager
   m_TagString: Untagged
@@ -60,9 +61,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9126cb4538e1b7d5c9c714eee8a0ec44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partyLevel: 1
-  luaBossDefeated: 0
-  absoluteZeroDefeated: 0
+  luaBossPhase1Defeated: 0
+  luaBossPhase2Defeated: 0
+  absoluteZeroPhase1Defeated: 0
   absoluteZeroPhase2Defeated: 0
   numEnemiesLeft: 0
   numEnemiesDefeatedThisEncounter: 0
@@ -70,9 +71,11 @@ MonoBehaviour:
   lastEncounter: {fileID: 0}
   listEnemiesLeft: []
   listActiveSpawners: []
+  buffStructures: []
   gamePhase: A
   dayNum: 0
-  gatheredIngredients: []
+  levelEditorPartyLevel: 1
+  returnScene: 
 --- !u!114 &-6619775620016568397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,3 +104,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stunnedEnemies: 0
+--- !u!114 &4140567779501887690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2970507007368853688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59091393291cae249ab6e439150971f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
