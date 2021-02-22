@@ -7,6 +7,7 @@ TagManager:
   - DoNotDestroy
   - CampCharacter
   - FrozenLua
+  - Obstacle
   layers:
   - Default
   - TransparentFX

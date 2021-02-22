@@ -408,6 +408,22 @@ public class SpawnPhase : Phase
                 if (combatant != null)
                 {
                     combatant.Damage(spawnDamage);
+                    //attempt to unlock the "Boxed out" achievement for blocking a frost spawn with an obstacle
+                    if (!AchievementManager.main.IsCompleted(AchievementManager.AchievementID.BOXED_OUT))
+                    {
+                        //1st check: is the blocker an obstacle (i.e. not a teammate)?
+                        if (combatant.gameObject.tag == "Obstacle")
+                        {
+                            Debug.Log("DETECTED OBSTACLE BLOCK");
+                            //2nd check: is the blocked object an enemy?
+                            var fieldObject = spawner.SpawnData.spawnObject.GetComponent<FieldObject>();
+                            if (fieldObject != null && fieldObject.Team == FieldEntity.Teams.Enemy)
+                            {
+                                Debug.Log("Unlocking \"Boxed Out\" achievement");
+                                AchievementManager.main.CompleteAchievement(AchievementManager.AchievementID.BOXED_OUT);
+                            }
+                        }
+                    }
                 }
             }
             yield return new WaitForSeconds(delaySeconds);

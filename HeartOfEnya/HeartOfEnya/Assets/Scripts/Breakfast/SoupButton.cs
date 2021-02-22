@@ -112,6 +112,11 @@ public class SoupButton : MonoBehaviour
             if(sfxSelect != null)
                 sfxSelect.Play();
 
+            //unlock the "Soup's On" achievement (for making soup for the first time)
+            if (!AchievementManager.main.IsCompleted(AchievementManager.AchievementID.SOUPS_ON)) //assume the first soup is the only one where we don't have the achievement
+            {
+                AchievementManager.main.CompleteAchievement(AchievementManager.AchievementID.SOUPS_ON);
+            }
             //load the next level
             DoNotDestroyOnLoad.Instance.persistentData.returnScene = nextSceneName; //mark what scene to return to on game load
             DoNotDestroyOnLoad.Instance.persistentData.SaveToFile(); //autosave
