@@ -255,5 +255,6 @@ Soleil: It’s weird. It feels more… real, in a way.
 Raina: Yeah, I get that. 
 Raina: Thank you, both of you, for giving me a chance to explain myself. For listening. 
 Raina: I couldn’t be prouder of you two, I hope you know that.
+<<unlockachievement BRIGHT_HEART>>
 
 ===

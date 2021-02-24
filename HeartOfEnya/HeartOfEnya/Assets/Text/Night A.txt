@@ -198,6 +198,7 @@ Bapy: We’ll all be there with you, fighting by your side!
 Soleil (shy smile): All of us, huh?
 Bapy: Yeah!
 Raina (smile eyes closed): Yeah… 
+<<unlockachievement OPEN_HEART>>
 
 
 ===

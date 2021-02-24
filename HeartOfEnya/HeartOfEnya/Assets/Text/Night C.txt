@@ -182,6 +182,7 @@ Soleil: It’s not something you just have to believe right now.
 Soleil: Things like this take a long time. 
 Bapy: ...but you’ll be here.
 Raina: Every step of the way.
+<<unlockachievement DAZZLING_HEART>>
 
 
 [[defrostingLua]]

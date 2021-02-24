@@ -35,3 +35,4 @@ Soleil (neutral): My family...
 
 
 -> (I should let them be…)
+<<unlockachievement BLAZING_HEART>>

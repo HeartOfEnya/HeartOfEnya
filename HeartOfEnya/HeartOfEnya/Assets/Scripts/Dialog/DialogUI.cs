@@ -179,6 +179,10 @@ namespace Dialog
                 frozenLua.Defrost();
                 yield return new WaitForSeconds(3.25f);
             }
+            else if(args[0] == "unlockachievement")
+            {
+                UnlockAchievement(args[1]);
+            }
             yield break;
         }
 
@@ -377,6 +381,44 @@ namespace Dialog
         {
             SoloMode = solo;
             fixedPosition = solo ? fixedPositionSolo : fixedPositionNormal;
+        }
+
+        //Unlocks the dialogue-related achievement associated with the given achievement code.
+        private void UnlockAchievement(string achCode)
+        {
+            //correct for capitalization issues introduced by YarnSpinner's command parser
+            achCode = achCode.ToUpper();
+            
+            switch (achCode)
+            {
+                case "OPEN_HEART":
+                    if (!AchievementManager.main.IsCompleted(AchievementManager.AchievementID.OPEN_HEART))
+                    {
+                        AchievementManager.main.CompleteAchievement(AchievementManager.AchievementID.OPEN_HEART);
+                    }
+                    break;
+                case "BRIGHT_HEART":
+                    if (!AchievementManager.main.IsCompleted(AchievementManager.AchievementID.BRIGHT_HEART))
+                    {
+                        AchievementManager.main.CompleteAchievement(AchievementManager.AchievementID.BRIGHT_HEART);
+                    }
+                    break;
+                case "DAZZLING_HEART":
+                    if (!AchievementManager.main.IsCompleted(AchievementManager.AchievementID.DAZZLING_HEART))
+                    {
+                        AchievementManager.main.CompleteAchievement(AchievementManager.AchievementID.DAZZLING_HEART);
+                    }
+                    break;
+                case "BLAZING_HEART":
+                    if (!AchievementManager.main.IsCompleted(AchievementManager.AchievementID.BLAZING_HEART))
+                    {
+                        AchievementManager.main.CompleteAchievement(AchievementManager.AchievementID.BLAZING_HEART);
+                    }
+                    break;
+                default:
+                    Debug.LogWarning("Unknown achievement code: " + achCode);
+                    break;
+            }
         }
     }
 }

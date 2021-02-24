@@ -400,6 +400,11 @@ public class PartyMember : Combatant, IPausable
             logger.testData.fp[GetName()] += fpCost.fpCost;
 
             Fp -= fpCost.fpCost;
+            //attempt to unlock the "Ice and Fire" achievement for using a flame move for the first time
+            if (!AchievementManager.main.IsCompleted(AchievementManager.AchievementID.ICE_AND_FIRE))
+            {
+                AchievementManager.main.CompleteAchievement(AchievementManager.AchievementID.ICE_AND_FIRE);
+            }
         }
 
         // log move use count and move damage in playtest logger
