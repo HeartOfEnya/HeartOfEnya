@@ -388,7 +388,7 @@ namespace Dialog
         {
             //correct for capitalization issues introduced by YarnSpinner's command parser
             achCode = achCode.ToUpper();
-            
+
             switch (achCode)
             {
                 case "OPEN_HEART":
@@ -413,6 +413,18 @@ namespace Dialog
                     if (!AchievementManager.main.IsCompleted(AchievementManager.AchievementID.BLAZING_HEART))
                     {
                         AchievementManager.main.CompleteAchievement(AchievementManager.AchievementID.BLAZING_HEART);
+                    }
+                    break;
+                case "DEFROSTING":
+                    if (!AchievementManager.main.IsCompleted(AchievementManager.AchievementID.DEFROSTING))
+                    {
+                        AchievementManager.main.CompleteAchievement(AchievementManager.AchievementID.DEFROSTING);
+                    }
+                    break;
+                case "COLD_HEART":
+                    if (!AchievementManager.main.IsCompleted(AchievementManager.AchievementID.COLD_HEART))
+                    {
+                        AchievementManager.main.CompleteAchievement(AchievementManager.AchievementID.COLD_HEART);
                     }
                     break;
                 default:

@@ -66,6 +66,7 @@ Tags:
 ---
 
 
+<<unlockachievement COLD_HEART>>
 Bapy: ...did we do it…? 
 Raina (battle): I think so.
 Soleil (frustrated): But the ice…

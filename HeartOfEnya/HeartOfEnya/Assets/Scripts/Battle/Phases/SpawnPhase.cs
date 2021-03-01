@@ -191,7 +191,14 @@ public class SpawnPhase : Phase
 
         // Don't spawn enemies
         if (!spawnEnemies || (pData.InMainPhase && pData.numEnemiesLeft <= 0 && pData.gamePhase != PersistentData.gamePhaseBeginMain))
+        {
+            //Unlock the "But Nobody Came" achievement for having a day where no frost appear
+            if (!AchievementManager.main.IsCompleted(AchievementManager.AchievementID.BUT_NOBODY_CAME))
+            {
+                AchievementManager.main.CompleteAchievement(AchievementManager.AchievementID.BUT_NOBODY_CAME);
+            }
             return;
+        }
 
         // This is a fresh encounter or a boss fight, just spawn everything
         if (CurrEncounter != pData.lastEncounter || pData.InLuaBattle || pData.InAbs0Battle)
