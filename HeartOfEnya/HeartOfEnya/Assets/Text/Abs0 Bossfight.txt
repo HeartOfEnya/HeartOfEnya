@@ -86,6 +86,8 @@ Tags:
 
 ---
 
+<<unlockachievement SAVE_THE_WORLD>>
+<<unlockachievement ABSOLUTE_VICTORY>>
 Bapy: The storm has stopped!
 Soleil: Does this mean-
 Lua: We did it!

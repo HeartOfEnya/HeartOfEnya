@@ -166,6 +166,7 @@ public class PartyPhase : Phase
             CleanupParty();
             if (Party.Count <= 0) // All characters have run, don't go to enemy phase
             {
+                HandleBossAchievements(); //run some tests for the boss-related achievements involving the party retreating (or not)
                 EndBattle();
                 return;
             }
@@ -357,6 +358,37 @@ public class PartyPhase : Phase
             {
                 member.EnableUnit();
             }
+        }
+    }
+
+    //handles logic for some of the achievements involving retreating (or not retreating) from bosses
+    public void HandleBossAchievements()
+    {
+        Debug.Log("PARTY RETREATED");
+        var pData = DoNotDestroyOnLoad.Instance.persistentData;
+
+        //Abs0-related achievements
+        if (pData.gamePhase == PersistentData.gamePhaseAbsoluteZeroBattle)
+        {
+            //lock the "defeat Abs0 without retreating" achievement
+            Debug.Log("NO-RETREAT ABS0 NOW LOCKED");
+            pData.allowAbsoluteVictory = false;
+
+            //unlock the "retreat ending" achievement, if applicable
+            if (pData.absoluteZeroPhase1Defeated)
+            {
+                Debug.Log("ESCAPED FROM ABSOLUTE ZERO");
+                if (!AchievementManager.main.IsCompleted(AchievementManager.AchievementID.DARING_ESCAPE))
+                {
+                    AchievementManager.main.CompleteAchievement(AchievementManager.AchievementID.DARING_ESCAPE);
+                }
+            }
+        }
+        else if (pData.InLuaBattle) //Luicicle-related achievements
+        {
+            //lock the "defeat luicicle without retreating" achievement
+            Debug.Log("NO-RETREAT LUICICLE NOW LOCKED");
+            pData.allowSwiftRescue = false;
         }
     }
 }

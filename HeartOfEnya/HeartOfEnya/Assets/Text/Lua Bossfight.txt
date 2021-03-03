@@ -67,6 +67,7 @@ Tags:
 
 
 <<unlockachievement COLD_HEART>>
+<<unlockachievement SWIFT_RESCUE>>
 Bapy: ...did we do it…? 
 Raina (battle): I think so.
 Soleil (frustrated): But the ice…

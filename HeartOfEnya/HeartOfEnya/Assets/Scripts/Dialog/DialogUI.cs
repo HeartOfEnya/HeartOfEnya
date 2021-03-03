@@ -386,6 +386,8 @@ namespace Dialog
         //Unlocks the dialogue-related achievement associated with the given achievement code.
         private void UnlockAchievement(string achCode)
         {
+            var pData = DoNotDestroyOnLoad.Instance.persistentData;
+
             //correct for capitalization issues introduced by YarnSpinner's command parser
             achCode = achCode.ToUpper();
 
@@ -425,6 +427,40 @@ namespace Dialog
                     if (!AchievementManager.main.IsCompleted(AchievementManager.AchievementID.COLD_HEART))
                     {
                         AchievementManager.main.CompleteAchievement(AchievementManager.AchievementID.COLD_HEART);
+                    }
+                    break;
+                case "SAVE_THE_WORLD":
+                    if (!AchievementManager.main.IsCompleted(AchievementManager.AchievementID.SAVE_THE_WORLD))
+                    {
+                        AchievementManager.main.CompleteAchievement(AchievementManager.AchievementID.SAVE_THE_WORLD);
+                    }
+                    break;
+                case "ABSOLUTE_VICTORY":
+                    if (!AchievementManager.main.IsCompleted(AchievementManager.AchievementID.ABSOLUTE_VICTORY))
+                    {
+                        //only unlock if we haven't previously retreated
+                        if (pData.allowAbsoluteVictory)
+                        {
+                            AchievementManager.main.CompleteAchievement(AchievementManager.AchievementID.ABSOLUTE_VICTORY);
+                        }
+                        else
+                        {
+                            Debug.Log("Absolute Victory achievement triggered, but locked by persistent data");
+                        }
+                    }
+                    break;
+                case "SWIFT_RESCUE":
+                    if (!AchievementManager.main.IsCompleted(AchievementManager.AchievementID.SWIFT_RESCUE))
+                    {
+                        //only unlock if we haven't previously retreated
+                        if (pData.allowSwiftRescue)
+                        {
+                            AchievementManager.main.CompleteAchievement(AchievementManager.AchievementID.SWIFT_RESCUE);
+                        }
+                        else
+                        {
+                            Debug.Log("Swift Rescue achievement triggered, but locked by persistent data");
+                        }
                     }
                     break;
                 default:
