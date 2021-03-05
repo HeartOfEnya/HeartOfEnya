@@ -370,10 +370,6 @@ public class PartyPhase : Phase
         //Abs0-related achievements
         if (pData.gamePhase == PersistentData.gamePhaseAbsoluteZeroBattle)
         {
-            //lock the "defeat Abs0 without retreating" achievement
-            Debug.Log("NO-RETREAT ABS0 NOW LOCKED");
-            pData.allowAbsoluteVictory = false;
-
             //unlock the "retreat ending" achievement, if applicable
             if (pData.absoluteZeroPhase1Defeated)
             {
@@ -383,12 +379,6 @@ public class PartyPhase : Phase
                     AchievementManager.main.CompleteAchievement(AchievementManager.AchievementID.DARING_ESCAPE);
                 }
             }
-        }
-        else if (pData.InLuaBattle) //Luicicle-related achievements
-        {
-            //lock the "defeat luicicle without retreating" achievement
-            Debug.Log("NO-RETREAT LUICICLE NOW LOCKED");
-            pData.allowSwiftRescue = false;
         }
     }
 }

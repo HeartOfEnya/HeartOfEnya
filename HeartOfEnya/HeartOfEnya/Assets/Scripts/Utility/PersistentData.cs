@@ -70,11 +70,6 @@ public class PersistentData : MonoBehaviour
     [Header("Saving")]
     public string returnScene; //what scene to return to on game load
 
-    [Header("Achievements")]
-    //tracking for the "defeat X without retreating" achievements
-    public bool allowSwiftRescue = true;
-    public bool allowAbsoluteVictory = true;
-
     public string IntToGamePhase(int phaseNum)
     {
         if (phaseNum == 0)

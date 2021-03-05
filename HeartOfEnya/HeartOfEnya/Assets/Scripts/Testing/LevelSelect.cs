@@ -98,10 +98,6 @@ public class LevelSelect : MonoBehaviour
             }
             pData.numEnemiesLeft = totalEnemies;
         }
-
-        //lift any achievement lockouts triggered by retreating during bossfights
-        pData.allowAbsoluteVictory = true;
-        pData.allowSwiftRescue = true;
     }
 
     // Update is called once per frame

@@ -439,7 +439,7 @@ namespace Dialog
                     if (!AchievementManager.main.IsCompleted(AchievementManager.AchievementID.ABSOLUTE_VICTORY))
                     {
                         //only unlock if we haven't previously retreated
-                        if (pData.allowAbsoluteVictory)
+                        if ((pData.gamePhase == PersistentData.gamePhaseAbsoluteZeroBattle) && (pData.dayNum == 0))
                         {
                             AchievementManager.main.CompleteAchievement(AchievementManager.AchievementID.ABSOLUTE_VICTORY);
                         }
@@ -453,7 +453,7 @@ namespace Dialog
                     if (!AchievementManager.main.IsCompleted(AchievementManager.AchievementID.SWIFT_RESCUE))
                     {
                         //only unlock if we haven't previously retreated
-                        if (pData.allowSwiftRescue)
+                        if ((pData.gamePhase == PersistentData.gamePhaseTut3AndLuaBattle) && (pData.dayNum == 1))
                         {
                             AchievementManager.main.CompleteAchievement(AchievementManager.AchievementID.SWIFT_RESCUE);
                         }
