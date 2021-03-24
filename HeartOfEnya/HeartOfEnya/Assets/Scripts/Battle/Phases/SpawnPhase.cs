@@ -424,7 +424,8 @@ public class SpawnPhase : Phase
                             Debug.Log("DETECTED OBSTACLE BLOCK");
                             //2nd check: is the blocked object an enemy?
                             var fieldObject = spawner.SpawnData.spawnObject.GetComponent<FieldObject>();
-                            if (fieldObject != null && fieldObject.Team == FieldEntity.Teams.Enemy)
+                            var pData = DoNotDestroyOnLoad.Instance.persistentData;
+                            if (fieldObject != null && fieldObject.Team == FieldEntity.Teams.Enemy && !pData.InTutorialFirstDay)
                             {
                                 Debug.Log("Unlocking \"Boxed Out\" achievement");
                                 AchievementManager.main.CompleteAchievement(AchievementManager.AchievementID.BOXED_OUT);
